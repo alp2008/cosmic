@@ -1,0 +1,58 @@
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\Пономарёв Александр\cosmic-main\bin\Debug\primer.exe, файл: c:\codeblocks\codeblocks\mingw\include\txlib.h, строка: 13628, функция: bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double, unsigned int),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005042FC (32-bit), Flags: CMdRe0, Thread: 0x222C (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004221C3 in D:\Пономарёв Александр\cosmic-main\bin\Debug\primer.exe: txBitBlt() at c:/codeblocks/codeblocks/mingw/include/txlib.h (13628)
+
+# 1 0x0042BD3E in D:\Пономарёв Александр\cosmic-main\bin\Debug\primer.exe: main() at D:/Пономарёв Александр/cosmic-main/main.cpp (30):
+
+     28: 
+     29:         txBegin();
+=>   30:         txBitBlt (txDC(), xFon, yFon,800,600,Fon);
+     31: 
+     32: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txBitBlt(HDC, double, double, double, double, HDC, double, double, unsigned int) at c:\codeblocks\codeblocks\mingw\include\txlib.h (13628):
+
+  13626:     {
+  13627: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>13628: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  13629: 
+  13630: $   POINT size = txGetExtent (sourceImage);
+
+# 1 in int main() at D:\Пономарёв Александр\cosmic-main\main.cpp (30):
+
+     28: 
+     29:         txBegin();
+=>   30:         txBitBlt (txDC(), xFon, yFon,800,600,Fon);
+     31: 
+     32: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	c:\codeblocks\codeblocks\mingw\include\txlib.h
+Compiled:	Jan 20 2023 17:13:07, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Jan 20 2023 17:13:23
+
+Run file:	D:\Пономарёв Александр\cosmic-main\bin\Debug\primer.exe
+Directory:	D:\Пономарёв Александр\cosmic-main
+
+--------------------------------------------------
