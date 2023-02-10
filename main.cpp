@@ -1,24 +1,64 @@
 #include "TXLib.h"
-    int xSpaceman = 200;
-    int ySpaceman = 196;
-    int xSpaceman2 = 100;
-    int ySpaceman2 = 100;
-    int vxSpaceman = 10;
-    int vxSpaceman2 = 10;
-    int xFon = 0;
-    int yFon = 0;
+
+struct Spaceman
+{
+    int x;
+    int y;
+    HDC image;
+    HDC image_left;
+    HDC image_right;
+};
+
+
+struct Barrier
+{
+    int x;
+    int y;
+    int w;
+    int h;
+    bool visible;
+    COLORREF color;
+    void draw()
+    {
+        txSetColor(color);
+        txSetFillColor(color);
+        txRectangle(x, y, x+w, y+h);
+    }
+};
+struct Bullet
+{
+    int x;
+    int y;
+    bool visible;
+    int vx;
+    int vy;
+    void draw()
+    {
+       txSetColor (TX_WHITE);
+       txSetFillColor (TX_BLACK);
+       txCircle(x, y, 5);
+    }
+};
 
 int main()
 {
 
-txCreateWindow (800, 600);
+txCreateWindow (1000, 625);
 
-HDC  Fon = txLoadImage ("pictures/fon.bmp");
-HDC  Spaceman = txLoadImage ("pictures/kosmleft.bmp");
-HDC  Spaceman3 = txLoadImage ("pictures/kosmright.bmp");
-HDC  Spaceman2 = txLoadImage ("pictures/kosm2right.bmp");
-HDC  Spaceman4 = txLoadImage ("pictures/kosm2left.bmp");
-HDC  Spaceman5 = txLoadImage ("pictures/kosmleft1.bmp");
+
+    HDC  Fon = txLoadImage ("pictures/fon.bmp");
+    int xFon = 0;
+    int yFon = 0;
+
+    Spaceman spaceman = {200,196,txLoadImage ("pictures/spacemanright.bmp"), txLoadImage ("pictures/spacemanleft.bmp"),txLoadImage ("pictures/spacemanright.bmp")};
+
+    Bullet bul = {0, 0, true, 0, 10};
+
+    Barrier bar[4];
+    bar[1] = {500,0,50,50, true, TX_GREEN};
+    bar[2] = {600,0,50,50, false, TX_WHITE};
+    bar[3] = {700,0,50,50, true, TX_GREEN};
+    bar[4] = {800,0,50,50, true, TX_WHITE};
 
     while(!GetAsyncKeyState (VK_ESCAPE))
     {
@@ -27,55 +67,61 @@ HDC  Spaceman5 = txLoadImage ("pictures/kosmleft1.bmp");
         txClear();
 
         txBegin();
-        txBitBlt (txDC(), xFon, yFon,800,600,Fon);
+        txBitBlt (txDC(), xFon, yFon,1000,625,Fon);
 
-
-        if(GetAsyncKeyState('W'))
-        {
-            yFon -= 10;
-        }
-        if(GetAsyncKeyState('S'))
-        {
-            yFon += 10;
-        }
-        if(GetAsyncKeyState('A'))
-        {
-            xFon -= 10;
-        }
-        if(GetAsyncKeyState('D'))
-        {
-            xFon += 10;
-        }
-
-        txTransparentBlt (txDC(), xSpaceman, ySpaceman,200,196,Spaceman,TX_BLACK);
+        txTransparentBlt (txDC(), spaceman.x, spaceman.y,136,69,spaceman.image_left,TX_BLACK);
         if(GetAsyncKeyState(VK_UP))
         {
-            ySpaceman -= 10;
+            spaceman.y -= 10;
         }
         if(GetAsyncKeyState(VK_DOWN))
         {
-            ySpaceman += 10;
+            spaceman.y += 10;
         }
         if(GetAsyncKeyState(VK_RIGHT))
         {
-            xSpaceman += 10;
-            Spaceman=Spaceman3;
+            spaceman.x += 10;
+            spaceman.image = spaceman.image_right;
         }
         if(GetAsyncKeyState(VK_LEFT))
         {
-            xSpaceman -= 10;
-            Spaceman=Spaceman5;
+            spaceman.x -= 10;
+            spaceman.image = spaceman.image_left;
         }
+            int x1=400;
+            int x2=700;
+            int y2=625;
+            int u1=300;
 
-
-        txTransparentBlt (txDC(), xSpaceman2, ySpaceman2,200,196,Spaceman2, 0,0, TX_BLACK);
-        xSpaceman2 = xSpaceman2 +vxSpaceman2;
-
-        if(xSpaceman2 > 800 - 147 || xSpaceman2 < 0)
+        for(int i=0; i<8; i++)
         {
-            vxSpaceman2 = - vxSpaceman2;
+            if (bar[i].visible)  bar[i].draw();
         }
 
+        if(bul.visible)
+            {
+                bul.draw();
+                bul.y -= bul.vy;
+            }
+
+
+        for(int i=0; i < 4; i++)
+        {
+            if( bul.x > bar[i].x &&
+                bul.x < bar[i].x + bar[i].w &&
+                bul.y > bar[i].y &&
+                bul.y < bar[i].y + bar[i].h)
+            {
+                bar[1].visible = false;
+            }
+        }
+
+        if(GetAsyncKeyState (VK_CONTROL))
+            {
+                bul.x = spaceman.x+108;
+                bul.y = spaceman.y+44;
+                bul.visible = true;
+            }
 
         txEnd;
         txSleep(10);
@@ -83,11 +129,6 @@ HDC  Spaceman5 = txLoadImage ("pictures/kosmleft1.bmp");
     }
 
     txDeleteDC (Fon);
-    txDeleteDC (Spaceman);
-    txDeleteDC (Spaceman2);
-    txDeleteDC (Spaceman3);
-    txDeleteDC (Spaceman4);
-    txDeleteDC (Spaceman5);
 
 txTextCursor (false);
 return 0;
