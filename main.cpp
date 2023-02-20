@@ -4,12 +4,11 @@ struct Spaceman
 {
     int x;
     int y;
-    HDC image;
-    HDC image_left;
     HDC image_right;
+    HDC image_left;
+    HDC image;
+
 };
-
-
 struct Barrier
 {
     int x;
@@ -51,7 +50,7 @@ txCreateWindow (1000, 625);
     int xFon = 0;
     int yFon = 0;
 
-    Spaceman spaceman = {200,196,txLoadImage ("Pictures/spaceman.bmp"),txLoadImage ("Pictures/spacemanleft.bmp"), spaceman.image_right};
+    Spaceman spaceman = {200,196,txLoadImage ("pictures/spacemanr.bmp"),txLoadImage ("pictures/spacemanl.bmp"), spaceman.image_left};
 
     Bullet bul = {0, 0, true, 0, 15};
 
@@ -74,7 +73,7 @@ txCreateWindow (1000, 625);
         txBegin();
         txBitBlt (txDC(), xFon, yFon,1000,625,Fon);
 
-        txTransparentBlt (txDC(), spaceman.x, spaceman.y,136,69,spaceman.image_left,TX_BLACK);
+        txTransparentBlt (txDC(), spaceman.x, spaceman.y,136,69,spaceman.image,0, 0,TX_BLACK);
         if(GetAsyncKeyState(VK_UP))
         {
             spaceman.y -= 15;
@@ -85,13 +84,13 @@ txCreateWindow (1000, 625);
         }
         if(GetAsyncKeyState (VK_RIGHT))
         {
-            spaceman.x += 15;
             spaceman.image = spaceman.image_right;
+            spaceman.x += 15;
         }
         if(GetAsyncKeyState (VK_LEFT))
         {
-            spaceman.x -= 15;
             spaceman.image = spaceman.image_left;
+            spaceman.x -= 15;
         }
             int x1=400;
             int x2=700;
@@ -127,8 +126,6 @@ txCreateWindow (1000, 625);
             bul.y = spaceman.y+44;
             bul.visible = true;
         }
-
-
         txEnd;
         txSleep(10);
 

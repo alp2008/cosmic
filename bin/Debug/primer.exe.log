@@ -56,3 +56,351 @@ Run file:	D:\Пономарёв Александр\cosmic-main\bin\Debug\primer.exe
 Directory:	D:\Пономарёв Александр\cosmic-main
 
 --------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\пономарёв александр\cosmic-main\bin\Debug\primer.exe, файл: d:\codeblocks\mingw\include\txlib.h, строка: 13657, функция: bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005042FC (32-bit), Flags: CMdRe0, Thread: 0x99C (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004226F0 in D:\пономарёв александр\cosmic-main\bin\Debug\primer.exe: txTransparentBlt() at d:/codeblocks/mingw/include/txlib.h (13657)
+
+# 1 0x0042BF28 in D:\пономарёв александр\cosmic-main\bin\Debug\primer.exe: main() at D:/пономарёв александр/cosmic-main/main.cpp (78):
+
+     76:         txBitBlt (txDC(), xFon, yFon,1000,625,Fon);
+     77: 
+=>   78:         txTransparentBlt (txDC(), spaceman.x, spaceman.y,136,69,spaceman.image_left,TX_BLACK);
+     79:         if(GetAsyncKeyState(VK_UP))
+     80:         {
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF) at d:\codeblocks\mingw\include\txlib.h (13657):
+
+  13655: 
+  13656: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>13657: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  13658: 
+  13659:     // Это автоматическое определение размеров картинки (точнее, HDC источника - source) с помощью txGetExtent().
+
+# 1 in int main() at D:\пономарёв александр\cosmic-main\main.cpp (78):
+
+     76:         txBitBlt (txDC(), xFon, yFon,1000,625,Fon);
+     77: 
+=>   78:         txTransparentBlt (txDC(), spaceman.x, spaceman.y,136,69,spaceman.image_left,TX_BLACK);
+     79:         if(GetAsyncKeyState(VK_UP))
+     80:         {
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	d:\codeblocks\mingw\include\txlib.h
+Compiled:	Feb 20 2023 17:03:46, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 20 2023 17:04:19
+
+Run file:	D:\пономарёв александр\cosmic-main\bin\Debug\primer.exe
+Directory:	D:\пономарёв александр\cosmic-main
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\пономарёв александр\cosmic-main\bin\Debug\primer.exe, файл: d:\codeblocks\mingw\include\txlib.h, строка: 13657, функция: bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005042FC (32-bit), Flags: CMdRe0, Thread: 0xFB8 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004226F0 in D:\пономарёв александр\cosmic-main\bin\Debug\primer.exe: txTransparentBlt() at d:/codeblocks/mingw/include/txlib.h (13657)
+
+# 1 0x0042BF28 in D:\пономарёв александр\cosmic-main\bin\Debug\primer.exe: main() at D:/пономарёв александр/cosmic-main/main.cpp (78):
+
+     76:         txBitBlt (txDC(), xFon, yFon,1000,625,Fon);
+     77: 
+=>   78:         txTransparentBlt (txDC(), spaceman.x, spaceman.y,136,69,spaceman.image_left,TX_BLACK);
+     79:         if(GetAsyncKeyState(VK_UP))
+     80:         {
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF) at d:\codeblocks\mingw\include\txlib.h (13657):
+
+  13655: 
+  13656: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>13657: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  13658: 
+  13659:     // Это автоматическое определение размеров картинки (точнее, HDC источника - source) с помощью txGetExtent().
+
+# 1 in int main() at D:\пономарёв александр\cosmic-main\main.cpp (78):
+
+     76:         txBitBlt (txDC(), xFon, yFon,1000,625,Fon);
+     77: 
+=>   78:         txTransparentBlt (txDC(), spaceman.x, spaceman.y,136,69,spaceman.image_left,TX_BLACK);
+     79:         if(GetAsyncKeyState(VK_UP))
+     80:         {
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	d:\codeblocks\mingw\include\txlib.h
+Compiled:	Feb 20 2023 17:08:08, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 20 2023 17:08:29
+
+Run file:	D:\пономарёв александр\cosmic-main\bin\Debug\primer.exe
+Directory:	D:\пономарёв александр\cosmic-main
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\пономарёв александр\cosmic-main\bin\Debug\primer.exe, файл: d:\codeblocks\mingw\include\txlib.h, строка: 13657, функция: bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005042FC (32-bit), Flags: CMdRe0, Thread: 0x1090 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004226F0 in D:\пономарёв александр\cosmic-main\bin\Debug\primer.exe: txTransparentBlt() at d:/codeblocks/mingw/include/txlib.h (13657)
+
+# 1 0x0042BF28 in D:\пономарёв александр\cosmic-main\bin\Debug\primer.exe: main() at D:/пономарёв александр/cosmic-main/main.cpp (78):
+
+     76:         txBitBlt (txDC(), xFon, yFon,1000,625,Fon);
+     77: 
+=>   78:         txTransparentBlt (txDC(), spaceman.x, spaceman.y,136,69,spaceman.image_left,TX_BLACK);
+     79:         if(GetAsyncKeyState(VK_UP))
+     80:         {
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF) at d:\codeblocks\mingw\include\txlib.h (13657):
+
+  13655: 
+  13656: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>13657: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  13658: 
+  13659:     // Это автоматическое определение размеров картинки (точнее, HDC источника - source) с помощью txGetExtent().
+
+# 1 in int main() at D:\пономарёв александр\cosmic-main\main.cpp (78):
+
+     76:         txBitBlt (txDC(), xFon, yFon,1000,625,Fon);
+     77: 
+=>   78:         txTransparentBlt (txDC(), spaceman.x, spaceman.y,136,69,spaceman.image_left,TX_BLACK);
+     79:         if(GetAsyncKeyState(VK_UP))
+     80:         {
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	d:\codeblocks\mingw\include\txlib.h
+Compiled:	Feb 20 2023 17:10:15, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 20 2023 17:10:33
+
+Run file:	D:\пономарёв александр\cosmic-main\bin\Debug\primer.exe
+Directory:	D:\пономарёв александр\cosmic-main
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\пономарёв александр\cosmic-main\bin\Debug\primer.exe, файл: d:\codeblocks\mingw\include\txlib.h, строка: 13657, функция: bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005042FC (32-bit), Flags: CMdRe0, Thread: 0xFC0 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004226F0 in D:\пономарёв александр\cosmic-main\bin\Debug\primer.exe: txTransparentBlt() at d:/codeblocks/mingw/include/txlib.h (13657)
+
+# 1 0x0042BF28 in D:\пономарёв александр\cosmic-main\bin\Debug\primer.exe: main() at D:/пономарёв александр/cosmic-main/main.cpp (76):
+
+     74:         txBitBlt (txDC(), xFon, yFon,1000,625,Fon);
+     75: 
+=>   76:         txTransparentBlt (txDC(), spaceman.x, spaceman.y,136,69,spaceman.image_left,TX_BLACK);
+     77:         if(GetAsyncKeyState(VK_UP))
+     78:         {
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF) at d:\codeblocks\mingw\include\txlib.h (13657):
+
+  13655: 
+  13656: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>13657: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  13658: 
+  13659:     // Это автоматическое определение размеров картинки (точнее, HDC источника - source) с помощью txGetExtent().
+
+# 1 in int main() at D:\пономарёв александр\cosmic-main\main.cpp (76):
+
+     74:         txBitBlt (txDC(), xFon, yFon,1000,625,Fon);
+     75: 
+=>   76:         txTransparentBlt (txDC(), spaceman.x, spaceman.y,136,69,spaceman.image_left,TX_BLACK);
+     77:         if(GetAsyncKeyState(VK_UP))
+     78:         {
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	d:\codeblocks\mingw\include\txlib.h
+Compiled:	Feb 20 2023 17:14:07, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 20 2023 17:14:25
+
+Run file:	D:\пономарёв александр\cosmic-main\bin\Debug\primer.exe
+Directory:	D:\пономарёв александр\cosmic-main
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\пономарёв александр\cosmic-main\bin\Debug\primer.exe, файл: d:\codeblocks\mingw\include\txlib.h, строка: 13657, функция: bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005042FC (32-bit), Flags: CMdRe0, Thread: 0x758 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004226F0 in D:\пономарёв александр\cosmic-main\bin\Debug\primer.exe: txTransparentBlt() at d:/codeblocks/mingw/include/txlib.h (13657)
+
+# 1 0x0042BF28 in D:\пономарёв александр\cosmic-main\bin\Debug\primer.exe: main() at D:/пономарёв александр/cosmic-main/main.cpp (76):
+
+     74:         txBitBlt (txDC(), xFon, yFon,1000,625,Fon);
+     75: 
+=>   76:         txTransparentBlt (txDC(), spaceman.x, spaceman.y,136,69,spaceman.image_left,TX_BLACK);
+     77:         if(GetAsyncKeyState(VK_UP))
+     78:         {
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF) at d:\codeblocks\mingw\include\txlib.h (13657):
+
+  13655: 
+  13656: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>13657: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  13658: 
+  13659:     // Это автоматическое определение размеров картинки (точнее, HDC источника - source) с помощью txGetExtent().
+
+# 1 in int main() at D:\пономарёв александр\cosmic-main\main.cpp (76):
+
+     74:         txBitBlt (txDC(), xFon, yFon,1000,625,Fon);
+     75: 
+=>   76:         txTransparentBlt (txDC(), spaceman.x, spaceman.y,136,69,spaceman.image_left,TX_BLACK);
+     77:         if(GetAsyncKeyState(VK_UP))
+     78:         {
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	d:\codeblocks\mingw\include\txlib.h
+Compiled:	Feb 20 2023 17:15:57, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 20 2023 17:16:15
+
+Run file:	D:\пономарёв александр\cosmic-main\bin\Debug\primer.exe
+Directory:	D:\пономарёв александр\cosmic-main
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\пономарёв александр\cosmic-main\bin\Debug\primer.exe, файл: d:\codeblocks\mingw\include\txlib.h, строка: 13657, функция: bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005042FC (32-bit), Flags: CMdRe0, Thread: 0x774 (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004226F0 in D:\пономарёв александр\cosmic-main\bin\Debug\primer.exe: txTransparentBlt() at d:/codeblocks/mingw/include/txlib.h (13657)
+
+# 1 0x0042BF28 in D:\пономарёв александр\cosmic-main\bin\Debug\primer.exe: main() at D:/пономарёв александр/cosmic-main/main.cpp (76):
+
+     74:         txBitBlt (txDC(), xFon, yFon,1000,625,Fon);
+     75: 
+=>   76:         txTransparentBlt (txDC(), spaceman.x, spaceman.y,136,69,spaceman.image,0, 0,TX_BLACK);
+     77:         if(GetAsyncKeyState(VK_UP))
+     78:         {
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF) at d:\codeblocks\mingw\include\txlib.h (13657):
+
+  13655: 
+  13656: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>13657: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  13658: 
+  13659:     // Это автоматическое определение размеров картинки (точнее, HDC источника - source) с помощью txGetExtent().
+
+# 1 in int main() at D:\пономарёв александр\cosmic-main\main.cpp (76):
+
+     74:         txBitBlt (txDC(), xFon, yFon,1000,625,Fon);
+     75: 
+=>   76:         txTransparentBlt (txDC(), spaceman.x, spaceman.y,136,69,spaceman.image,0, 0,TX_BLACK);
+     77:         if(GetAsyncKeyState(VK_UP))
+     78:         {
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	d:\codeblocks\mingw\include\txlib.h
+Compiled:	Feb 20 2023 17:20:44, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Feb 20 2023 17:21:02
+
+Run file:	D:\пономарёв александр\cosmic-main\bin\Debug\primer.exe
+Directory:	D:\пономарёв александр\cosmic-main
+
+--------------------------------------------------
