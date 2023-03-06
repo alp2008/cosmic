@@ -1,9 +1,10 @@
 #include "TXLib.h"
-
 struct Spaceman
 {
     int x;
     int y;
+    int w;
+    int h;
     HDC image_right;
     HDC image_left;
     HDC image;
@@ -15,15 +16,8 @@ struct Barrier
     int y;
     int w;
     int h;
-    COLORREF color;
     bool visible;
-
-    void draw()
-    {
-        txSetColor(color);
-        txSetFillColor(color);
-        txRectangle(x, y, x+w, y+h);
-    }
+    HDC image;
 };
 struct Bullet
 {
@@ -50,19 +44,23 @@ txCreateWindow (1000, 625);
     int xFon = 0;
     int yFon = 0;
 
-    Spaceman spaceman = {200,196,txLoadImage ("pictures/spacemanr.bmp"),txLoadImage ("pictures/spacemanl.bmp"), spaceman.image_left};
+    Spaceman spaceman = {107,50,102,44,txLoadImage ("pictures/spacemanr.bmp"),txLoadImage ("pictures/spacemanl.bmp"), spaceman.image_left};
+    int xspaceman;
+    int yspaceman;
 
     Bullet bul = {0, 0, true, 0, 15};
 
+    Barrier barr{500,200,100,100, true, txLoadImage ("pictures/astr3.bmp") };
+
     Barrier bar[8];
-    bar[0] = {50, 50, 50, 50, TX_WHITE, true};
-    bar[1] = {150, 50, 50, 50, TX_GREEN, true};
-    bar[2] = {250, 50, 50, 50, TX_WHITE, true};
-    bar[3] = {350, 50, 50, 50, TX_GREEN, true};
-    bar[4] = {450, 50, 50, 50, TX_WHITE, true};
-    bar[5] = {550, 50, 50, 50, TX_GREEN, true};
-    bar[6] = {650, 50, 50, 50, TX_WHITE, true};
-    bar[7] = {750, 50, 50, 50, TX_GREEN, true};
+    bar[0] = {50, 50, 69, 53, true, txLoadImage ("pictures/astr1.bmp")};
+    bar[1] = {150, 50, 69, 53, true, txLoadImage ("pictures/astr2.bmp")};
+    bar[2] = {250, 50, 69, 53, true, txLoadImage ("pictures/astr3.bmp")};
+    bar[3] = {350, 50, 69, 53, true, txLoadImage ("pictures/astr4.bmp")};
+    bar[4] = {450, 50, 69, 53, true, txLoadImage ("pictures/astr1.bmp")};
+    bar[5] = {550, 50, 69, 53, true, txLoadImage ("pictures/astr2.bmp")};
+    bar[6] = {650, 50, 69, 53, true, txLoadImage ("pictures/astr3.bmp")};
+    bar[7] = {750, 50, 69, 53, true, txLoadImage ("pictures/astr4.bmp")};
 
     while(!GetAsyncKeyState (VK_ESCAPE))
     {
@@ -73,33 +71,46 @@ txCreateWindow (1000, 625);
         txBegin();
         txBitBlt (txDC(), xFon, yFon,1000,625,Fon);
 
-        txTransparentBlt (txDC(), spaceman.x, spaceman.y,136,69,spaceman.image,0, 0,TX_BLACK);
+        xspaceman = spaceman.x;
+        yspaceman = spaceman.y;
+
+        txTransparentBlt (txDC(), spaceman.x, spaceman.y,107,50,spaceman.image,0, 0,TX_BLACK);
         if(GetAsyncKeyState(VK_UP))
         {
-            spaceman.y -= 15;
+            spaceman.y -= 10;
         }
         if(GetAsyncKeyState(VK_DOWN))
         {
-            spaceman.y += 15;
+            spaceman.y += 10;
         }
         if(GetAsyncKeyState (VK_RIGHT))
         {
             spaceman.image = spaceman.image_right;
-            spaceman.x += 15;
+            spaceman.x += 10;
         }
         if(GetAsyncKeyState (VK_LEFT))
         {
             spaceman.image = spaceman.image_left;
-            spaceman.x -= 15;
+            spaceman.x -= 10;
         }
+
+            if(spaceman.x+spaceman.w > barr.x && spaceman.x < barr.x+barr.w &&
+               spaceman.y+spaceman.h > barr.y && spaceman.y <barr.y+barr.h)
+            {
+                spaceman.x = xspaceman;
+                spaceman.y = yspaceman;
+            }
+
             int x1=400;
             int x2=700;
             int y2=625;
             int u1=300;
 
+         txTransparentBlt(txDC(), bar[i].x, bar[i].y, 69, 53, bar[i].image, 0, 0, TX_BLACK);
+
          for(int i=0; i<8; i++)
         {
-            if (bar[i].visible)    bar[i].draw();
+            if (bar[i].visible)    bar[i].image;
         }
 
         if(bul.visible)
