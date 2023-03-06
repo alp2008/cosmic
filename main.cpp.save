@@ -50,17 +50,21 @@ txCreateWindow (1000, 625);
 
     Bullet bul = {0, 0, true, 0, 15};
 
-    Barrier barr{500,200,100,100, true, txLoadImage ("pictures/astr3.bmp") };
+    Barrier barr{500,200,300,300, true, txLoadImage ("pictures/astra.bmp")};
+
+    Barrier ber[2];
+    ber[0] = {0,100,151,470,true,txLoadImage
+    ber[1] = {
 
     Barrier bar[8];
-    bar[0] = {50, 50, 69, 53, true, txLoadImage ("pictures/astr1.bmp")};
-    bar[1] = {150, 50, 69, 53, true, txLoadImage ("pictures/astr2.bmp")};
-    bar[2] = {250, 50, 69, 53, true, txLoadImage ("pictures/astr3.bmp")};
-    bar[3] = {350, 50, 69, 53, true, txLoadImage ("pictures/astr4.bmp")};
-    bar[4] = {450, 50, 69, 53, true, txLoadImage ("pictures/astr1.bmp")};
-    bar[5] = {550, 50, 69, 53, true, txLoadImage ("pictures/astr2.bmp")};
-    bar[6] = {650, 50, 69, 53, true, txLoadImage ("pictures/astr3.bmp")};
-    bar[7] = {750, 50, 69, 53, true, txLoadImage ("pictures/astr4.bmp")};
+    bar[0] = {50, 50, 52, 44, true, txLoadImage ("pictures/astr1.bmp")};
+    bar[1] = {150, 50, 52, 44, true, txLoadImage ("pictures/astr2.bmp")};
+    bar[2] = {250, 50, 52, 44, true, txLoadImage ("pictures/astr3.bmp")};
+    bar[3] = {350, 50, 52, 44, true, txLoadImage ("pictures/astr4.bmp")};
+    bar[4] = {450, 50, 52, 44, true, txLoadImage ("pictures/astr1.bmp")};
+    bar[5] = {550, 50, 52, 44, true, txLoadImage ("pictures/astr2.bmp")};
+    bar[6] = {650, 50, 52, 44, true, txLoadImage ("pictures/astr3.bmp")};
+    bar[7] = {750, 50, 52, 44, true, txLoadImage ("pictures/astr4.bmp")};
 
     while(!GetAsyncKeyState (VK_ESCAPE))
     {
@@ -70,7 +74,6 @@ txCreateWindow (1000, 625);
 
         txBegin();
         txBitBlt (txDC(), xFon, yFon,1000,625,Fon);
-        txTransparentBlt(txDC(), bar1.x, bar1.y, 69, 53, bar1.image, 0, 0, TX_BLACK);
 
         xspaceman = spaceman.x;
         yspaceman = spaceman.y;
@@ -95,6 +98,8 @@ txCreateWindow (1000, 625);
             spaceman.x -= 10;
         }
 
+            txTransparentBlt (txDC(), barr.x, barr.y,300, 300 ,barr.image, 0, 0,TX_BLACK);
+
             if(spaceman.x+spaceman.w > barr.x && spaceman.x < barr.x+barr.w &&
                spaceman.y+spaceman.h > barr.y && spaceman.y <barr.y+barr.h)
             {
@@ -107,9 +112,11 @@ txCreateWindow (1000, 625);
             int y2=625;
             int u1=300;
 
+
          for(int i=0; i<8; i++)
         {
-            if (bar[i].visible)    bar[i].draw();
+            if (bar[i].visible)
+                txTransparentBlt(txDC(), bar[i].x, bar[i].y, 52,44, bar[i].image, 0, 0, TX_BLACK);
         }
 
         if(bul.visible)
@@ -142,6 +149,9 @@ txCreateWindow (1000, 625);
     }
 
     txDeleteDC (Fon);
+    txDeleteDC (spaceman.image);
+    txDeleteDC (spaceman.image_right);
+    txDeleteDC (spaceman.image_left);
 
 txTextCursor (false);
 return 0;
