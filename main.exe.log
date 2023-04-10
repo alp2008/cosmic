@@ -1113,3 +1113,416 @@ Run file:	D:\пономарёв александр\cosmic-main\main.exe
 Directory:	D:\пономарёв александр\cosmic-main
 
 --------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: D:\проекты и другое\cosmic-main\main.exe, файл: d:\program\codeblocks\mingw\include\txlib.h, строка: 13678, функция: bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF),
+
+Сообщение: Прямоугольник копируемой области {0, 0, 300, 300} не полностью лежит внутри изображения-источника {0, 0, 150, 150}, функция txTransparentBlt() работать не будет.
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005052FC (32-bit), Flags: CMdRe0, Thread: 0x45BC (Main), GetLastError(): 13 (Недопустимые данные). 
+From: d:\program\codeblocks\mingw\include\txlib.h (13677) bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF).
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004228EC in D:\проекты и другое\cosmic-main\main.exe: txTransparentBlt() at d:/program/codeblocks/mingw/include/txlib.h (13678)
+
+# 1 0x0042C4BB in D:\проекты и другое\cosmic-main\main.exe: main() at D:/проекты и другое/cosmic-main/main.cpp (101):
+
+     99:         }
+    100: 
+=>  101:             txTransparentBlt (txDC(), barr.x, barr.y,300, 300 ,barr.image, 0, 0,TX_BLACK);
+    102: 
+    103:             if(spaceman.x+spaceman.w > barr.x && spaceman.x < barr.x+barr.w &&
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF) at d:\program\codeblocks\mingw\include\txlib.h (13677):
+
+  13675:         {
+  13676: $       SetLastError (ERROR_INVALID_DATA);
+=>13677: $       TX_ERROR ("Прямоугольник копируемой области {%g, %g, %g, %g} не полностью лежит внутри изображения-источника {%d, %d, %d, %d}, "
+  13678:                   "функция txTransparentBlt() работать не будет.", xSource, ySource, xSource + width, ySource + height, 0, 0, (int) size.x, (int) size.y);
+  13679:         }
+
+# 1 in int main() at D:\проекты и другое\cosmic-main\main.cpp (101):
+
+     99:         }
+    100: 
+=>  101:             txTransparentBlt (txDC(), barr.x, barr.y,300, 300 ,barr.image, 0, 0,TX_BLACK);
+    102: 
+    103:             if(spaceman.x+spaceman.w > barr.x && spaceman.x < barr.x+barr.w &&
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	d:\program\codeblocks\mingw\include\txlib.h
+Compiled:	Mar 10 2023 17:28:32, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Mar 10 2023 17:28:37
+
+Run file:	D:\проекты и другое\cosmic-main\main.exe
+Directory:	D:\проекты и другое\cosmic-main
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: D:\проекты и другое\cosmic-main\main.exe, файл: d:\program\codeblocks\mingw\include\txlib.h, строка: 13678, функция: bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF),
+
+Сообщение: Прямоугольник копируемой области {0, 0, 300, 300} не полностью лежит внутри изображения-источника {0, 0, 150, 150}, функция txTransparentBlt() работать не будет.
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005052FC (32-bit), Flags: CMdRe0, Thread: 0x44D8 (Main), GetLastError(): 13 (Недопустимые данные). 
+From: d:\program\codeblocks\mingw\include\txlib.h (13677) bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF).
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004228EC in D:\проекты и другое\cosmic-main\main.exe: txTransparentBlt() at d:/program/codeblocks/mingw/include/txlib.h (13678)
+
+# 1 0x0042C4BB in D:\проекты и другое\cosmic-main\main.exe: main() at D:/проекты и другое/cosmic-main/main.cpp (101):
+
+     99:         }
+    100: 
+=>  101:             txTransparentBlt (txDC(), barr.x, barr.y,300, 300 ,barr.image, 0, 0,TX_BLACK);
+    102: 
+    103:             if(spaceman.x+spaceman.w > barr.x && spaceman.x < barr.x+barr.w &&
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF) at d:\program\codeblocks\mingw\include\txlib.h (13677):
+
+  13675:         {
+  13676: $       SetLastError (ERROR_INVALID_DATA);
+=>13677: $       TX_ERROR ("Прямоугольник копируемой области {%g, %g, %g, %g} не полностью лежит внутри изображения-источника {%d, %d, %d, %d}, "
+  13678:                   "функция txTransparentBlt() работать не будет.", xSource, ySource, xSource + width, ySource + height, 0, 0, (int) size.x, (int) size.y);
+  13679:         }
+
+# 1 in int main() at D:\проекты и другое\cosmic-main\main.cpp (101):
+
+     99:         }
+    100: 
+=>  101:             txTransparentBlt (txDC(), barr.x, barr.y,300, 300 ,barr.image, 0, 0,TX_BLACK);
+    102: 
+    103:             if(spaceman.x+spaceman.w > barr.x && spaceman.x < barr.x+barr.w &&
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	d:\program\codeblocks\mingw\include\txlib.h
+Compiled:	Mar 10 2023 17:28:32, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Mar 10 2023 17:28:50
+
+Run file:	D:\проекты и другое\cosmic-main\main.exe
+Directory:	D:\проекты и другое\cosmic-main
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: D:\проекты и другое\cosmic-main\main.exe, файл: d:\program\codeblocks\mingw\include\txlib.h, строка: 13678, функция: bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF),
+
+Сообщение: Прямоугольник копируемой области {0, 0, 151, 470} не полностью лежит внутри изображения-источника {0, 0, 52, 44}, функция txTransparentBlt() работать не будет.
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005052FC (32-bit), Flags: CMdRe0, Thread: 0x23E4 (Main), GetLastError(): 13 (Недопустимые данные). 
+From: d:\program\codeblocks\mingw\include\txlib.h (13677) bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF).
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004228EC in D:\проекты и другое\cosmic-main\main.exe: txTransparentBlt() at d:/program/codeblocks/mingw/include/txlib.h (13678)
+
+# 1 0x0042C5E0 in D:\проекты и другое\cosmic-main\main.exe: main() at D:/проекты и другое/cosmic-main/main.cpp (106):
+
+    104:         {
+    105:             if (bar[i].visible)
+=>  106:                 txTransparentBlt(txDC(), bar[i].x, bar[i].y, 151,470, bar[i].image, 0, 0, TX_BLACK);
+    107:         }
+    108: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF) at d:\program\codeblocks\mingw\include\txlib.h (13677):
+
+  13675:         {
+  13676: $       SetLastError (ERROR_INVALID_DATA);
+=>13677: $       TX_ERROR ("Прямоугольник копируемой области {%g, %g, %g, %g} не полностью лежит внутри изображения-источника {%d, %d, %d, %d}, "
+  13678:                   "функция txTransparentBlt() работать не будет.", xSource, ySource, xSource + width, ySource + height, 0, 0, (int) size.x, (int) size.y);
+  13679:         }
+
+# 1 in int main() at D:\проекты и другое\cosmic-main\main.cpp (106):
+
+    104:         {
+    105:             if (bar[i].visible)
+=>  106:                 txTransparentBlt(txDC(), bar[i].x, bar[i].y, 151,470, bar[i].image, 0, 0, TX_BLACK);
+    107:         }
+    108: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	d:\program\codeblocks\mingw\include\txlib.h
+Compiled:	Mar 10 2023 17:31:49, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Mar 10 2023 17:31:54
+
+Run file:	D:\проекты и другое\cosmic-main\main.exe
+Directory:	D:\проекты и другое\cosmic-main
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: D:\проекты и другое\cosmic-main\main.exe, файл: d:\program\codeblocks\mingw\include\txlib.h, строка: 13678, функция: bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF),
+
+Сообщение: Прямоугольник копируемой области {0, 0, 151, 470} не полностью лежит внутри изображения-источника {0, 0, 52, 44}, функция txTransparentBlt() работать не будет.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005052FC (32-bit), Flags: CMdRe0, Thread: 0x23E4 (Main), GetLastError(): 13 (Недопустимые данные). 
+From: d:\program\codeblocks\mingw\include\txlib.h (13677) bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF).
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004228EC in D:\проекты и другое\cosmic-main\main.exe: txTransparentBlt() at d:/program/codeblocks/mingw/include/txlib.h (13678)
+
+# 1 0x0042C5E0 in D:\проекты и другое\cosmic-main\main.exe: main() at D:/проекты и другое/cosmic-main/main.cpp (106):
+
+    104:         {
+    105:             if (bar[i].visible)
+=>  106:                 txTransparentBlt(txDC(), bar[i].x, bar[i].y, 151,470, bar[i].image, 0, 0, TX_BLACK);
+    107:         }
+    108: 
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF) at d:\program\codeblocks\mingw\include\txlib.h (13677):
+
+  13675:         {
+  13676: $       SetLastError (ERROR_INVALID_DATA);
+=>13677: $       TX_ERROR ("Прямоугольник копируемой области {%g, %g, %g, %g} не полностью лежит внутри изображения-источника {%d, %d, %d, %d}, "
+  13678:                   "функция txTransparentBlt() работать не будет.", xSource, ySource, xSource + width, ySource + height, 0, 0, (int) size.x, (int) size.y);
+  13679:         }
+
+# 1 in int main() at D:\проекты и другое\cosmic-main\main.cpp (106):
+
+    104:         {
+    105:             if (bar[i].visible)
+=>  106:                 txTransparentBlt(txDC(), bar[i].x, bar[i].y, 151,470, bar[i].image, 0, 0, TX_BLACK);
+    107:         }
+    108: 
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	d:\program\codeblocks\mingw\include\txlib.h
+Compiled:	Mar 10 2023 17:31:49, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Mar 10 2023 17:31:54
+
+Run file:	D:\проекты и другое\cosmic-main\main.exe
+Directory:	D:\проекты и другое\cosmic-main
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: D:\проекты и другое\cosmic-main\main.exe, файл: d:\program\codeblocks\mingw\include\txlib.h, строка: 13678, функция: bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF),
+
+Сообщение: Прямоугольник копируемой области {0, 0, 107, 50} не полностью лежит внутри изображения-источника {0, 0, 20, 10}, функция txTransparentBlt() работать не будет.
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005052FC (32-bit), Flags: CMdRe0, Thread: 0x2950 (Main), GetLastError(): 13 (Недопустимые данные). 
+From: d:\program\codeblocks\mingw\include\txlib.h (13677) bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF).
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004228EC in D:\проекты и другое\cosmic-main\main.exe: txTransparentBlt() at d:/program/codeblocks/mingw/include/txlib.h (13678)
+
+# 1 0x0042C53C in D:\проекты и другое\cosmic-main\main.exe: main() at D:/проекты и другое/cosmic-main/main.cpp (119):
+
+    117:         }
+    118: 
+=>  119:         txTransparentBlt (txDC(), fly.x, fly.y,107,50,fly.image,0, 0,TX_BLACK);
+    120: 
+    121:         txTransparentBlt (txDC(), barr.x, barr.y,150, 150 ,barr.image, 0, 0,TX_BLACK);
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF) at d:\program\codeblocks\mingw\include\txlib.h (13677):
+
+  13675:         {
+  13676: $       SetLastError (ERROR_INVALID_DATA);
+=>13677: $       TX_ERROR ("Прямоугольник копируемой области {%g, %g, %g, %g} не полностью лежит внутри изображения-источника {%d, %d, %d, %d}, "
+  13678:                   "функция txTransparentBlt() работать не будет.", xSource, ySource, xSource + width, ySource + height, 0, 0, (int) size.x, (int) size.y);
+  13679:         }
+
+# 1 in int main() at D:\проекты и другое\cosmic-main\main.cpp (119):
+
+    117:         }
+    118: 
+=>  119:         txTransparentBlt (txDC(), fly.x, fly.y,107,50,fly.image,0, 0,TX_BLACK);
+    120: 
+    121:         txTransparentBlt (txDC(), barr.x, barr.y,150, 150 ,barr.image, 0, 0,TX_BLACK);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	d:\program\codeblocks\mingw\include\txlib.h
+Compiled:	Mar 24 2023 17:55:25, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Mar 24 2023 17:55:29
+
+Run file:	D:\проекты и другое\cosmic-main\main.exe
+Directory:	D:\проекты и другое\cosmic-main
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: D:\проекты и другое\cosmic-main\main.exe, файл: d:\program\codeblocks\mingw\include\txlib.h, строка: 13678, функция: bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF),
+
+Сообщение: Прямоугольник копируемой области {0, 0, 107, 50} не полностью лежит внутри изображения-источника {0, 0, 20, 10}, функция txTransparentBlt() работать не будет.
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005052FC (32-bit), Flags: CMdRe0, Thread: 0x5858 (Main), GetLastError(): 13 (Недопустимые данные). 
+From: d:\program\codeblocks\mingw\include\txlib.h (13677) bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF).
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004228EC in D:\проекты и другое\cosmic-main\main.exe: txTransparentBlt() at d:/program/codeblocks/mingw/include/txlib.h (13678)
+
+# 1 0x0042C53C in D:\проекты и другое\cosmic-main\main.exe: main() at D:/проекты и другое/cosmic-main/main.cpp (119):
+
+    117:         }
+    118: 
+=>  119:         txTransparentBlt (txDC(), fly.x, fly.y,107,50,fly.image,0, 0,TX_BLACK);
+    120: 
+    121:         txTransparentBlt (txDC(), barr.x, barr.y,150, 150 ,barr.image, 0, 0,TX_BLACK);
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF) at d:\program\codeblocks\mingw\include\txlib.h (13677):
+
+  13675:         {
+  13676: $       SetLastError (ERROR_INVALID_DATA);
+=>13677: $       TX_ERROR ("Прямоугольник копируемой области {%g, %g, %g, %g} не полностью лежит внутри изображения-источника {%d, %d, %d, %d}, "
+  13678:                   "функция txTransparentBlt() работать не будет.", xSource, ySource, xSource + width, ySource + height, 0, 0, (int) size.x, (int) size.y);
+  13679:         }
+
+# 1 in int main() at D:\проекты и другое\cosmic-main\main.cpp (119):
+
+    117:         }
+    118: 
+=>  119:         txTransparentBlt (txDC(), fly.x, fly.y,107,50,fly.image,0, 0,TX_BLACK);
+    120: 
+    121:         txTransparentBlt (txDC(), barr.x, barr.y,150, 150 ,barr.image, 0, 0,TX_BLACK);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	d:\program\codeblocks\mingw\include\txlib.h
+Compiled:	Mar 24 2023 17:55:40, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Mar 24 2023 17:55:45
+
+Run file:	D:\проекты и другое\cosmic-main\main.exe
+Directory:	D:\проекты и другое\cosmic-main
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: D:\проекты и другое\cosmic-main\main.exe, файл: d:\program\codeblocks\mingw\include\txlib.h, строка: 13678, функция: bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF),
+
+Сообщение: Прямоугольник копируемой области {0, 0, 107, 50} не полностью лежит внутри изображения-источника {0, 0, 20, 10}, функция txTransparentBlt() работать не будет.
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005052FC (32-bit), Flags: CMdRe0, Thread: 0x46C (Main), GetLastError(): 13 (Недопустимые данные). 
+From: d:\program\codeblocks\mingw\include\txlib.h (13677) bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF).
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004228EC in D:\проекты и другое\cosmic-main\main.exe: txTransparentBlt() at d:/program/codeblocks/mingw/include/txlib.h (13678)
+
+# 1 0x0042C3F2 in D:\проекты и другое\cosmic-main\main.exe: main() at D:/проекты и другое/cosmic-main/main.cpp (108):
+
+    106:         fly.x = spaceman.x+107;
+    107:         fly.y = spaceman.y+20;
+=>  108:         txTransparentBlt (txDC(), fly.x, fly.y,107,50,fly.image,0, 0,TX_BLACK);
+    109: 
+    110:         txTransparentBlt (txDC(), spaceman.x, spaceman.y,107,50,spaceman.image,0, 0,TX_BLACK);
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF) at d:\program\codeblocks\mingw\include\txlib.h (13677):
+
+  13675:         {
+  13676: $       SetLastError (ERROR_INVALID_DATA);
+=>13677: $       TX_ERROR ("Прямоугольник копируемой области {%g, %g, %g, %g} не полностью лежит внутри изображения-источника {%d, %d, %d, %d}, "
+  13678:                   "функция txTransparentBlt() работать не будет.", xSource, ySource, xSource + width, ySource + height, 0, 0, (int) size.x, (int) size.y);
+  13679:         }
+
+# 1 in int main() at D:\проекты и другое\cosmic-main\main.cpp (108):
+
+    106:         fly.x = spaceman.x+107;
+    107:         fly.y = spaceman.y+20;
+=>  108:         txTransparentBlt (txDC(), fly.x, fly.y,107,50,fly.image,0, 0,TX_BLACK);
+    109: 
+    110:         txTransparentBlt (txDC(), spaceman.x, spaceman.y,107,50,spaceman.image,0, 0,TX_BLACK);
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	d:\program\codeblocks\mingw\include\txlib.h
+Compiled:	Mar 24 2023 18:08:44, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Mar 24 2023 18:08:48
+
+Run file:	D:\проекты и другое\cosmic-main\main.exe
+Directory:	D:\проекты и другое\cosmic-main
+
+--------------------------------------------------
