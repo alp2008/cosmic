@@ -1526,3 +1526,224 @@ Run file:	D:\проекты и другое\cosmic-main\main.exe
 Directory:	D:\проекты и другое\cosmic-main
 
 --------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\проекты и другое\cosmic-main\main.exe, файл: d:\program\codeblocks\mingw\include\txlib.h, строка: 13657, функция: bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF),
+
+Сообщение: Параметр "sourceImage" неверен. Возможно, этот холст не создан, или уже уничтожен, или не загрузилась картинка.
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005072FC (32-bit), Flags: CMdRe0, Thread: 0x1550C (Main), GetLastError(): 13 (Недопустимые данные). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004226F0 in D:\проекты и другое\cosmic-main\main.exe: txTransparentBlt() at d:/program/codeblocks/mingw/include/txlib.h (13657)
+
+# 1 0x0042C952 in D:\проекты и другое\cosmic-main\main.exe: main() at D:/проекты и другое/cosmic-main/main.cpp (212):
+
+    210:         if(PAGE == "Game")
+    211:         {
+=>  212:             txTransparentBlt (txDC(),xFon, yFon, 1000, 625, Fon);
+    213:             xspaceman = spaceman.x;
+    214:             yspaceman = spaceman.y;
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF) at d:\program\codeblocks\mingw\include\txlib.h (13657):
+
+  13655: 
+  13656: $1  if (_TX_HDC_FAILED (destImage))   return false;
+=>13657: $   if (_TX_HDC_FAILED (sourceImage)) return false;
+  13658: 
+  13659:     // Это автоматическое определение размеров картинки (точнее, HDC источника - source) с помощью txGetExtent().
+
+# 1 in int main() at D:\проекты и другое\cosmic-main\main.cpp (212):
+
+    210:         if(PAGE == "Game")
+    211:         {
+=>  212:             txTransparentBlt (txDC(),xFon, yFon, 1000, 625, Fon);
+    213:             xspaceman = spaceman.x;
+    214:             yspaceman = spaceman.y;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	d:\program\codeblocks\mingw\include\txlib.h
+Compiled:	Apr 24 2023 19:18:37, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Apr 24 2023 19:18:44
+
+Run file:	D:\проекты и другое\cosmic-main\main.exe
+Directory:	D:\проекты и другое\cosmic-main
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib сообщает:
+
+Программа: D:\проекты и другое\cosmic-main\main.exe, файл: d:\program\codeblocks\mingw\include\txlib.h, строка: 13678, функция: bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF),
+
+Сообщение: Прямоугольник копируемой области {0, 0, 1000, 625} не полностью лежит внутри изображения-источника {0, 0, 600, 600}, функция txTransparentBlt() работать не будет.
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005072FC (32-bit), Flags: CMdRe0, Thread: 0x4D8C (Main), GetLastError(): 13 (Недопустимые данные). 
+From: d:\program\codeblocks\mingw\include\txlib.h (13677) bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF).
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x004228EC in D:\проекты и другое\cosmic-main\main.exe: txTransparentBlt() at d:/program/codeblocks/mingw/include/txlib.h (13678)
+
+# 1 0x0042C952 in D:\проекты и другое\cosmic-main\main.exe: main() at D:/проекты и другое/cosmic-main/main.cpp (212):
+
+    210:         if(PAGE == "Game")
+    211:         {
+=>  212:             txTransparentBlt (txDC(),xFon, yFon, 1000, 625, Fon);
+    213:             xspaceman = spaceman.x;
+    214:             yspaceman = spaceman.y;
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in bool {anonymous}::TX::txTransparentBlt(HDC, double, double, double, double, HDC, double, double, COLORREF) at d:\program\codeblocks\mingw\include\txlib.h (13677):
+
+  13675:         {
+  13676: $       SetLastError (ERROR_INVALID_DATA);
+=>13677: $       TX_ERROR ("Прямоугольник копируемой области {%g, %g, %g, %g} не полностью лежит внутри изображения-источника {%d, %d, %d, %d}, "
+  13678:                   "функция txTransparentBlt() работать не будет.", xSource, ySource, xSource + width, ySource + height, 0, 0, (int) size.x, (int) size.y);
+  13679:         }
+
+# 1 in int main() at D:\проекты и другое\cosmic-main\main.cpp (212):
+
+    210:         if(PAGE == "Game")
+    211:         {
+=>  212:             txTransparentBlt (txDC(),xFon, yFon, 1000, 625, Fon);
+    213:             xspaceman = spaceman.x;
+    214:             yspaceman = spaceman.y;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	d:\program\codeblocks\mingw\include\txlib.h
+Compiled:	Apr 24 2023 19:26:04, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Apr 24 2023 19:26:10
+
+Run file:	D:\проекты и другое\cosmic-main\main.exe
+Directory:	D:\проекты и другое\cosmic-main
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib предупреждает:
+
+Программа: D:\проекты и другое\cosmic-main\main.exe,
+
+ВНЕЗАПНО: Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042D19C в функции main() в файле D:/проекты и другое/cosmic-main/main.cpp на строке 285. Попытка записать данные по адресу 0x04775E00 в модуле D:\проекты и другое\cosmic-main\main.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+#1: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005072FC (32-bit), Flags: CMdRe0, Thread: 0x1781C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042D19C in D:\проекты и другое\cosmic-main\main.exe: main() at D:/проекты и другое/cosmic-main/main.cpp (284):
+
+    282:                 {
+    283:                 bar[0].x=100;
+=>  284:                 bar[1].x=200;
+    285:                 bar[2786312].x=300;
+    286:                 bar[3].x=400;
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at D:\проекты и другое\cosmic-main\main.cpp (278):
+
+    276:              if((txGetPixel(spaceman.x, spaceman.y+spaceman.h) == RGB(255, 0, 0)) && (level == 1))
+    277:             {
+=>  278:                 Fon = txLoadImage("Pictures/fon.bmp");
+    279:                 spaceman.x = 100;
+    280:                 spaceman.y = 200;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	d:\program\codeblocks\mingw\include\txlib.h
+Compiled:	Apr 28 2023 15:56:01, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Apr 28 2023 15:56:07
+
+Run file:	D:\проекты и другое\cosmic-main\main.exe
+Directory:	D:\проекты и другое\cosmic-main
+
+--------------------------------------------------
+
+--------------------------------------------------
+TXLib соболезнует...
+
+Программа: D:\проекты и другое\cosmic-main\main.exe,
+
+ВНЕЗАПНО: signal (11, 0x00): SIGSEGV: Доступ по неверному указателю. Ставьте ассерты! 
+
+Нарушение доступа к памяти.
+
+#1: Исключение EXCEPTION_ACCESS_VIOLATION (0xC0000005) при выполнении кода по адресу 0x0042D19C в функции main() в файле D:/проекты и другое/cosmic-main/main.cpp на строке 285. Попытка записать данные по адресу 0x04775E00 в модуле D:\проекты и другое\cosmic-main\main.exe. Спасибо _txVectoredExceptionHandler(), что сообщил. Люблю его <3
+
+С помощью функции signal() вы можете сами обработать эту ошибку.
+
+#2: TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400], Instance: 0x005072FC (32-bit), Flags: CMdRe0, Thread: 0x1781C (Main). 
+
+--------------------------------------------------
+Стек вызовов:
+
+# 0 0x0042D19C in D:\проекты и другое\cosmic-main\main.exe: main() at D:/проекты и другое/cosmic-main/main.cpp (284):
+
+    282:                 {
+    283:                 bar[0].x=100;
+=>  284:                 bar[1].x=200;
+    285:                 bar[2786312].x=300;
+    286:                 bar[3].x=400;
+
+--------------------------------------------------
+Стек вызовов TX:
+
+# 0 in int main() at D:\проекты и другое\cosmic-main\main.cpp (278):
+
+    276:              if((txGetPixel(spaceman.x, spaceman.y+spaceman.h) == RGB(255, 0, 0)) && (level == 1))
+    277:             {
+=>  278:                 Fon = txLoadImage("Pictures/fon.bmp");
+    279:                 spaceman.x = 100;
+    280:                 spaceman.y = 200;
+
+--------------------------------------------------
+Developed with:
+
+The Dumb Artist Library (TX Library)
+TXLib [Ver: 00173a, Rev: 171, Date: 2022-07-23 02:08:28 +0400]
+Copyright (C) Ded (Ilya Dedinsky, http://txlib.ru) <mail@txlib.ru>
+See license on: http://txlib.ru
+
+TXLib file:	d:\program\codeblocks\mingw\include\txlib.h
+Compiled:	Apr 28 2023 15:56:01, GNU g++ 4.8.1, std=201103L, MinGW Runtime 3.20, 32-bit, DEBUG
+Started:	Apr 28 2023 15:56:07
+
+Run file:	D:\проекты и другое\cosmic-main\main.exe
+Directory:	D:\проекты и другое\cosmic-main
+
+--------------------------------------------------

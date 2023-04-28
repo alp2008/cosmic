@@ -1,16 +1,4 @@
 #include "TXLib.h"
-struct Fly
-{
-    int x;
-    int y;
-    int w;
-    int h;
-    bool visible;
-    HDC image_right;
-    HDC image_left;
-    HDC image;
-};
-
 struct Spaceman
 {
     int x;
@@ -20,7 +8,7 @@ struct Spaceman
     HDC image_right;
     HDC image_left;
     HDC image;
-
+    bool visible;
 };
 struct Barrier
 {
@@ -85,7 +73,7 @@ struct Button
     }
 
     bool mouse_click()
-    {
+    {bool visible;
         if( txMouseButtons() == 1  &&
             txMouseX() > x && txMouseX() < x+w &&
             txMouseY() > y && txMouseY() < y+h)
@@ -107,8 +95,9 @@ txCreateWindow (1000, 625);
 
 
 
-    HDC menu = txLoadImage("Pictures/fon.bmp");
+    HDC menu = txLoadImage("Pictures/fon1.bmp");
     HDC Fon = txLoadImage ("pictures/fon.bmp");
+    HDC Fon2 = txLoadImage ("pictures/fon2.bmp");
     HDC spacemanr = txLoadImage("pictures/spacemanr.bmp");
     HDC spacemanl= txLoadImage("pictures/spacemanl.bmp");
     HDC bulletr = txLoadImage("pictures/bulletright.bmp");
@@ -130,10 +119,6 @@ txCreateWindow (1000, 625);
     int xspaceman;
     int yspaceman;
 
-    Fly fly =  {20,10,102,44,false,bulletr,bulletl, fly.image_left};
-    int xfly;
-    int yfly;
-
     Bullet bul = {0, 0, true, 0, 20};
 
     Barrier barr{900,400,150,150, true,astr};
@@ -146,7 +131,7 @@ txCreateWindow (1000, 625);
 
     int level = 1;
 
-    string PAGE = "Game";
+    string PAGE = "Menu";
 
     Barrier bar[8];
     bar[0] = {50, 200, 52, 44, true, astr1};
@@ -155,12 +140,12 @@ txCreateWindow (1000, 625);
     bar[3] = {350, 400, 52, 44, true, astr4};
     bar[4] = {500, 50, 52, 44, true, astr1};
     bar[5] = {550, 150, 52, 44, true, astr2};
-    bar[6] = {700, 400, 52, 44, true, astr3};
+    bar[6] = {790, 400, 52, 44, true, astr3};
     bar[7] = {750, 200, 52, 44, true, astr4};
 
-    Button btn_start = {300,  50, 200, 50, "ÑÒÀÐÒ"};
-    Button btn_about = {300, 150, 200, 50, "ÎÁ ÈÃÐÅ"};
-    Button btn_exit =  {300, 250, 200, 50, "ÂÛÕÎÄ"};
+    Button btn_start = {400, 150, 200, 50, "ÑÒÀÐÒ"};
+    Button btn_about = {400, 250, 200, 50, "ÎÁ ÈÃÐÅ"};
+    Button btn_exit =  {400, 350, 200, 50, "ÂÛÕÎÄ"};
 
 
     while(true)
@@ -175,9 +160,9 @@ txCreateWindow (1000, 625);
         }
         if(PAGE == "Menu")
         {
-            txBitBlt(txDC(), 0, 0, 800, 600, menu);
-            //Êíîïêà ÑÒÀÐÒ
+            txBitBlt(txDC(), 0, 0, 1000, 625, menu);
             btn_start.draw();
+
             if(btn_start.mouse_over())
             {
                 btn_start.change();
@@ -186,7 +171,6 @@ txCreateWindow (1000, 625);
             {
                 PAGE = "Game";
             }
-            //Êíîïêà ÎÁ ÈÃÐÅ
             btn_about.draw();
             if(btn_about.mouse_over())
             {
@@ -194,9 +178,8 @@ txCreateWindow (1000, 625);
             }
             if(btn_about.mouse_click())
             {
-                PAGE = "";
+                PAGE = "About";
             }
-            //Êíîïêà ÂÛÕÎÄ
             btn_exit.draw();
             if(btn_exit.mouse_over())
             {
@@ -205,54 +188,34 @@ txCreateWindow (1000, 625);
             if(btn_exit.mouse_click())
             {
                 txDisableAutoPause();
-                return 0;
+                return 0;ber[0].visible=false;
             }
         }
 
         if(PAGE == "Game")
         {
-            txTransparentBlt (txDC(),xFon, yFon, 800, 600, Fon);
+            txTransparentBlt (txDC(),xFon, yFon, 1000, 625, Fon);
             xspaceman = spaceman.x;
             yspaceman = spaceman.y;
 
-            txTransparentBlt (txDC(), fly.x, fly.y,20,10,fly.image,0, 0,TX_BLACK);
-            if(!GetAsyncKeyState (VK_RIGHT) and !GetAsyncKeyState (VK_LEFT))
-            {
-                fly.visible = false;
-            }
-            yfly = fly.y;
-            xfly = fly.x;
-            fly.x = spaceman.x+107;
-            fly.y = spaceman.y+20;
-
             txTransparentBlt (txDC(), spaceman.x, spaceman.y,107,50,spaceman.image,0, 0,TX_BLACK);
-            if(GetAsyncKeyState(VK_UP))
+            if(GetAsyncKeyState('W'))
             {
                 spaceman.y -= 10;
             }
-            if(GetAsyncKeyState(VK_DOWN))
+            if(GetAsyncKeyState('S'))
             {
-                spaceman.y += 10;bul.x = spaceman.x+95;
-                bul.y = spaceman.y+35;
+                spaceman.y += 10;
             }
-            if(GetAsyncKeyState (VK_RIGHT))
+            if(GetAsyncKeyState ('D'))
             {
                 spaceman.image = spaceman.image_right;
-                fly.x = spaceman.x-10;
-                fly.image = fly.image_right;
                 spaceman.x += 10;
-                fly.visible = true;
-                bul.x = spaceman.x+95;
-                bul.y = spaceman.y+35;
             }
-            if(GetAsyncKeyState (VK_LEFT))
+            if(GetAsyncKeyState ('A'))
             {
                 spaceman.image = spaceman.image_left;
-                fly.image = fly.image_left;
                 spaceman.x -= 10;
-                fly.visible = true;
-                bul.x = spaceman.x+10;
-                bul.y = spaceman.y+35;
             }
 
             txTransparentBlt (txDC(), barr.x, barr.y,150, 150 ,barr.image, 0, 0,TX_BLACK);
@@ -267,8 +230,6 @@ txCreateWindow (1000, 625);
                 {
                     spaceman.x = xspaceman;
                     spaceman.y = yspaceman;
-                    fly.y = yfly;
-                    fly.x = xfly;
                 }
             }
 
@@ -277,8 +238,6 @@ txCreateWindow (1000, 625);
                 {
                     spaceman.x = xspaceman;
                     spaceman.y = yspaceman;
-                    fly.y = yfly;
-                    fly.x = xfly;
                 }
 
 
@@ -314,25 +273,95 @@ txCreateWindow (1000, 625);
                 bul.visible = true;
             }
 
+             if((txGetPixel(spaceman.x, spaceman.y+spaceman.h) == RGB(255, 0, 0)) && (level == 1))
+            {
+                Fon = txLoadImage("Pictures/fon.bmp");
+                spaceman.x = 100;
+                spaceman.y = 200;
+                for(int i=0; i<8; i++)
+                {
+                bar[0].x=100;
+                bar[1].x=200;
+                bar[2].x=300;
+                bar[3].x=400;
+                bar[4].x=500;
+                bar[5].x=600;
+                bar[6].x=750;
+                bar[7].x=800;
+                bar[i].visible=true;
+                }
+                level = 2;
+            }
+
+            for(int i=0; i<8; i++)
+            {
+                if(bar[0].visible
+                or bar[1].visible
+                or bar[2].visible
+                or bar[3].visible
+                or bar[4].visible
+                or bar[5].visible
+                or bar[6].visible
+                or bar[7].visible)
+                {
+                    barr.x = 900;
+                }
+                else
+                {
+                    barr.x = 1500;
+                }
+            }
+
+            char str[100];
+            sprintf(str, "Óðîâåíü -  %d", level);
+            txSetColor(TX_YELLOW);
+            txDrawText(300, 5, 500, 50, str);
+
+            if((txGetPixel(spaceman.x, spaceman.y+spaceman.h) == RGB(255, 0, 0)) && (level == 2))
+            {
+                Fon = txLoadImage("Pictures/fon.bmp");
+                spaceman.x = 100;
+                spaceman.y = 200;
+                for(int i=0; i<8; i++)
+                {
+                bar[0].x=150;
+                bar[1].x=250;
+                bar[2].x=320;
+                bar[3].x=440;
+                bar[4].x=580;
+                bar[5].x=690;
+                bar[6].x=750;
+                bar[7].x=890;
+                bar[i].visible=true;
+                }
+                level = 3;
+            }
+
+            if((txGetPixel(spaceman.x, spaceman.y+spaceman.h) == RGB(255, 0, 0)) && (level == 3))
+            {
+                Fon = txLoadImage("Pictures/fin.bmp");
+                spaceman.visible=false;
+                spaceman.x=1000000000;
+                for(int i=0; i<3; i++)
+                {
+                    ber[0].visible=false;
+                    ber[1].visible=false;
+                    ber[2].visible=false;
+                    ber[3].visible=false;
+                }
+            }
+        }
+
+        if(PAGE == "About")
+        {
+                txTransparentBlt (txDC(),0, 0, 1000, 625, Fon2);
+        }
+
             txEnd;
             txSleep(10);
         }
-    }
-
-    txDeleteDC (Fon);
-    txDeleteDC (menu);
-    txDeleteDC (spacemanr);
-    txDeleteDC (spacemanl);
-    txDeleteDC (bulletr);
-    txDeleteDC (bulletl);
-    txDeleteDC (astr1);
-    txDeleteDC (astr2);
-    txDeleteDC (astr3);
-    txDeleteDC (astr4);
-    txDeleteDC (astr);
-    txDeleteDC (stolb1);
-    txDeleteDC (stolb2);
 
 txTextCursor (false);
 return 0;
+
 }
